@@ -21,6 +21,7 @@ Then start the server using this command in the directory
 ```
 
 Enable USB Debugging in the developer settings on the connected Android Device and authorize the computer in the settings.
+Also make sure you enable that adb is allowed to execute on the device.
 
 
 
@@ -34,3 +35,7 @@ Enable USB Debugging in the developer settings on the connected Android Device a
 - Not sure if the 3 pieces the game chooses every round fit in any case.
 
 - pieces are misplaced sometimes
+
+- Animations are not accounted for
+
+- New Skins often are not recognised. Reset to original skin.
