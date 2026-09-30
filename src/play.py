@@ -1,5 +1,5 @@
 import numpy as np
-from gaps import count_gaps
+from src.gaps import count_gaps
 
 class game:
     def score(grid: np.array, lines:int=None) -> int:

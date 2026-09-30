@@ -1,6 +1,5 @@
 from numpy import array_equal
 
-from images import get_images
 from src import capture
 from src.detect import detect
 from src.play import calculate_moves
@@ -70,18 +69,13 @@ def main(image, device=None, input_controller=None, delay_handler=None):
 if __name__ == "__main__":
     debug = False
 
-    if debug:
-        for image in get_images("z3"):
-            main(image)
-            input("Press Enter to continue...")
-    else:
-        phone = capture.setup()
+    phone = capture.setup()
+    image = capture.screenshot(phone)
+    controller, delay_handler = main(image, phone)
+    
+    # Main loop to continuously capture screenshots and process them
+    while True:
         image = capture.screenshot(phone)
-        controller, delay_handler = main(image, phone)
-        
-        # Main loop to continuously capture screenshots and process them
-        while True:
-            image = capture.screenshot(phone)
-            main(image, phone, controller, delay_handler)
-            print("Continuing...")
-            delay_handler.await_change(image)
+        main(image, phone, controller, delay_handler)
+        print("Continuing...")
+        delay_handler.await_change(image)
